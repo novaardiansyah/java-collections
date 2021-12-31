@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Collections;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -19,5 +20,12 @@ public class SortedSetApp {
       System.out.println(person.getName());
     }
 
+    SortedSet<Person> people2 = Collections.unmodifiableSortedSet(people);
+    // ! Error: cannot modify unmodifiable collection
+    // people2.add(new Person("John")); // ? Error
+
+    for (Person person : people2) {
+      System.out.println(person.getName());
+    }
   }
 }
